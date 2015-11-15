@@ -1,0 +1,7 @@
+1) We don’t detach because we want the threads to wait for each other to finish. I few were to detach one might finish before the other and mess up the string in a way that when another thread looks at it, it does the wrong thing. The threads would also not know when each other finish.
+2) The program uses sched_yield because after a thread has made a change to the string it should wait until it is able to make another change. If it is not used the threads will not wait. No because the threads are working on the string at different times.
+3) You don’t include the canceled threads because those threads don’t go into the while loop where the swap count is incremented.
+4) When a thread joins it self it will run forever because it is waiting for itself to terminate while also trying to join itself.
+5) The sleeper thread is created in the main method to return and send a cancellation message to the threads if a certain time limit has reached.
+6) PTHREAD_CANCEL_ASYNCHRONOUS is used because the threads are just doing basic computations, also for the fact that a thread needs to be canceled whenever there is a cancellation request.
+7) The bug in part b #2 was that this function was only allocating memory for one thread instead of all of them.

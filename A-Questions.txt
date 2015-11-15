@@ -1,0 +1,4 @@
+Part A
+1) If you were to use multiple processes the processes won’t be able to share data, while if you use threads they will be because they share same process.
+2) Workperformed is used signal if a thread is in the middle of a swap. It is set equal to 1 if a thread is in the process of a swapping.
+3) The type of fp is a void pointer.
